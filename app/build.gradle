@@ -28,7 +28,7 @@ android {
         versionCode 1
         versionName "1.0.0"
 
-        setProperty("archivesBaseName", "WoloxApp-$versionName") // Generated APK file name
+        setProperty("archivesBaseName", "MotionLayout-$versionName") // Generated APK file name
     }
 
     signingConfigs {
@@ -66,11 +66,11 @@ android {
         stage {
             applicationId defaultConfig.applicationId + ".stage"
             versionName defaultConfig.versionName + "-stage"
-            resValue "string", "app_name", "[Stage] WoloxApp"
+            resValue "string", "app_name", "[Stage] MotionLayout"
         }
 
         production {
-            resValue "string", "app_name", "WoloxApp"
+            resValue "string", "app_name", "MotionLayout"
         }
     }
 
@@ -117,6 +117,9 @@ dependencies {
     implementation "androidx.core:core:$androidx_core_version"
     implementation "androidx.recyclerview:recyclerview:$androidx_recycler_version"
     implementation "com.google.android.material:material:$androidx_material_version"
+
+    //MotionLayout Support
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta2'
 
     // Dagger
     implementation "com.google.dagger:dagger:$dagger_version"
