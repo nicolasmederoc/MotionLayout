@@ -9,12 +9,12 @@
     app:layoutDescription="@xml/scene_01"
     tools:showPaths="true">
 
-    <View
+    <TextView
         android:id="@+id/button"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:background="@color/colorAccent"
         android:text="Button"
+        android:gravity="center"
         tools:layout_editor_absoluteX="201dp"
         tools:layout_editor_absoluteY="333dp" />
 

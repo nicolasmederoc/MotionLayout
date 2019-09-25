@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Define a constraint layout with all the views of the fragment and the motion layout you want to animate -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/static_spacing_medium_extra"
+            android:background="@android:color/white">
+
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@android:color/background_light"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/static_spacing_medium_extra"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="56dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_action_name" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/static_spacing_medium_extra"
+                        android:layout_marginBottom="@dimen/spacing_medium_extra"
+                        android:text="Wolox"
+                        android:textAlignment="viewStart"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/black"
+                        android:textSize="@dimen/font_large"
+                        android:textStyle="bold"
+                        android:visibility="visible" />
+                </LinearLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+
+            <!-- Include motion layout here -->
+
+            <include layout="@layout/motionlayout_for_viewpager"/>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/vHomeTabsMotion"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                app:tabIndicatorColor="@color/motionGreen"
+                app:tabSelectedTextColor="@color/motionGreen">
+            </com.google.android.material.tabs.TabLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/vViewPagerMotion">
+        </androidx.viewpager.widget.ViewPager>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
