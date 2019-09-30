@@ -25,8 +25,8 @@ class ExampleFragment : WolmoFragment<ExamplePresenter>(), IExampleView {
     override fun layout(): Int = R.layout.fragment_example
 
     override fun init() {
-        //initViewPager()
-        //setUpViewPagerMotionListener()
+        // initViewPager()
+        // setUpViewPagerMotionListener()
     }
 
     override fun setListeners() {
