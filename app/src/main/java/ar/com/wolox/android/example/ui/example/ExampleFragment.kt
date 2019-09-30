@@ -3,6 +3,7 @@ package ar.com.wolox.android.example.ui.example
 import android.content.Intent
 import android.os.Handler
 import androidx.viewpager.widget.ViewPager
+import androidx.core.util.Pair
 import ar.com.wolox.android.R
 import ar.com.wolox.android.example.ui.viewpager.ViewPagerActivity
 import ar.com.wolox.android.example.ui.viewpager.random.RandomFragment
@@ -16,24 +17,30 @@ class ExampleFragment : WolmoFragment<ExamplePresenter>(), IExampleView {
 
     @Inject lateinit var randomFragment1: RandomFragment
     @Inject lateinit var randomFragment2: RandomFragment
+    @Inject lateinit var randomFragment3: RandomFragment
     private lateinit var fragmentPagerAdapter: SimpleFragmentPagerAdapter
-    private var numberOfPages: Int = 0
 
+    /* Change fragment_example for fragment_viewpager_with_motionlayout
+       and uncomment the functions inside init() to see more magic. */
     override fun layout(): Int = R.layout.fragment_example
 
     override fun init() {
-        /*fragmentPagerAdapter = SimpleFragmentPagerAdapter(childFragmentManager)
-        fragmentPagerAdapter.addFragments(
-                Pair(randomFragment1, "Page 1"),
-                Pair(randomFragment2, "Page 2")
-        )
-        vViewPagerMotion.adapter = fragmentPagerAdapter
-        vHomeTabsMotion.setupWithViewPager(vViewPagerMotion)
-        numberOfPages = 2
-        setUpViewPagerMotionListener()*/
+        //initViewPager()
+        //setUpViewPagerMotionListener()
     }
 
     override fun setListeners() {
+    }
+
+    private fun initViewPager() {
+        fragmentPagerAdapter = SimpleFragmentPagerAdapter(childFragmentManager)
+        fragmentPagerAdapter.addFragments(
+                Pair(randomFragment1, "Page 1"),
+                Pair(randomFragment2, "Page 2"),
+                Pair(randomFragment3, "Page 3")
+        )
+        vViewPagerMotion.adapter = fragmentPagerAdapter
+        vHomeTabsMotion.setupWithViewPager(vViewPagerMotion)
     }
 
     private fun setUpViewPagerMotionListener() {
@@ -44,7 +51,7 @@ class ExampleFragment : WolmoFragment<ExamplePresenter>(), IExampleView {
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
                 Handler().postDelayed({
                     /* change motion layout progress according to the viewPager position */
-                    vMotionLayout.progress = (position + positionOffset) / (numberOfPages - 1)
+                    vMotionLayout.progress = (position + positionOffset) / (fragmentPagerAdapter.count - 1)
                 }, 100)
             }
 

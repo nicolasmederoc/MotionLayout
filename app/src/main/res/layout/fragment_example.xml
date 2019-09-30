@@ -3,19 +3,28 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/motionLayout"
+    android:id="@+id/vMotionLayoutSquare"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layoutDescription="@xml/scene_01"
     tools:showPaths="true">
 
     <TextView
-        android:id="@+id/button"
+        android:id="@+id/square"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:text="Button"
-        android:gravity="center"
-        tools:layout_editor_absoluteX="201dp"
-        tools:layout_editor_absoluteY="333dp" />
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/title_position"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:gravity="center"/>
+
+    <ImageView
+        android:id="@+id/motion_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/plane"/>
 
 </androidx.constraintlayout.motion.widget.MotionLayout>
